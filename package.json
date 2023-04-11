@@ -1,17 +1,19 @@
 {
-  "name": "LearnReactNative",
+  "name": "learn-react-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
+    "format": "prettier --write components/**.js",
     "start": "react-native start",
     "test": "jest"
   },
   "dependencies": {
     "react": "18.2.0",
-    "react-native": "0.71.6"
+    "react-native": "0.71.6",
+    "react-native-safe-area-context": "^4.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

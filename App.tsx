@@ -6,24 +6,38 @@
  */
 
 import React from 'react';
-import {SafeAreaView, Text, useColorScheme, View} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from "react-native-safe-area-context"
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import DateHead from './components/DateHead';
+import AddTodo from './components/AddTodo';
+import Empty from './components/Empty';
+import { StyleSheet, KeyboardAvoidingView, Platform } from 'react-native';
 
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+export default function App() {
+  const today = new Date()
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View>
-        <Text>Hello React!</Text>
-      </View>
-    </SafeAreaView>
+    <SafeAreaProvider>
+      <SafeAreaView edges={["bottom"]} style={styles.block}>
+        <KeyboardAvoidingView
+          behavior={Platform.select({ios: 'padding'})}
+          style={styles.avoid}
+        >
+        <DateHead date={today} />
+        <Empty />
+        <AddTodo />
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
-export default App;
+const styles = StyleSheet.create({
+  block: {
+    flex: 1,
+    backgroundColor: "#fff"
+  },
+  avoid: {
+    flex: 1
+  }
+})
