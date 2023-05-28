@@ -18,7 +18,7 @@ function WriteScreen() {
     onCreate({
       title,
       body,
-      data: new Date().toISOString(),
+      date: new Date().toISOString(),
     });
     navigation.pop();
   };
