@@ -1,7 +1,8 @@
 import React, {useContext} from 'react';
 import {StyleSheet, View} from 'react-native';
-import LogContext from '../contexts/LogContext';
+
 import FloatingWriteButton from '../components/FloatingWriteButton';
+import LogContext from '../contexts/LogContext';
 
 function FeedsScreen() {
   const {logs} = useContext(LogContext);
