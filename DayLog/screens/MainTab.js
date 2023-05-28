@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import SearchHeader from 'components/SearchHeader';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import CalendarScreen from './CalendarScreen';
@@ -40,10 +41,12 @@ function MainTab() {
         name="Search"
         component={SearchScreen}
         options={{
+          title: '검색',
           // eslint-disable-next-line react/no-unstable-nested-components
           tabBarIcon: ({color, size}) => (
             <Icon name="search" size={size} color={color} />
           ),
+          headerTitle: () => <SearchHeader />,
         }}
       />
     </Tab.Navigator>
