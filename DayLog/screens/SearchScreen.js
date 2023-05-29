@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 import EmptySearchResult from 'components/EmptySearchResult';
 import FeedList from 'components/FeedList';
 import LogContext from 'contexts/LogContext';
 import SearchContext from 'contexts/SearchContext';
 
-function SearchScreen({navigation}) {
+function SearchScreen() {
   const {keyword} = useContext(SearchContext);
   const {logs} = useContext(LogContext);
 
